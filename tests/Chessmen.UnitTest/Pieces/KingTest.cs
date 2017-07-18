@@ -17,8 +17,8 @@ namespace Chessmen.UnitTest.Pieces
         public void King_should_move_to_3_squares_from_corner(string source, string target1, string target2, string target3)
         {
             // Arrange
-            IChessmen king = new King();
             ISquare square = new Square(source);
+            IChessmen king = new King();
 
             // Act
             IEnumerable<string> moves = king.GetPseudoMovesFrom(square).ToList();

@@ -17,7 +17,7 @@ namespace Chessmen.UnitTest.Pieces
         public void Rock_should_always_move_14_squares(string source, IEnumerable<string> expected)
         {
             // Arrange
-            Square square = new Square(source);
+            ISquare square = new Square(source);
             IChessmen rock = new Rock();
 
             // Act
