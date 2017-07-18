@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
-using AnToLan.Core.Contracts;
-using AnToLan.Core.Pieces;
-using AnToLan.Core.Board;
-using AnToLan.Core.Enums;
+using Chessmen.Core.Contracts;
+using Chessmen.Core.Pieces;
+using Chessmen.Core.Board;
+using Chessmen.Core.Enums;
 
-namespace AnToLan.UnitTest.Pieces
+namespace Chessmen.UnitTest.Pieces
 {
     [TestFixture]
     class PawnTest
@@ -17,7 +17,7 @@ namespace AnToLan.UnitTest.Pieces
         public void Paw_should_move_2_squares_from(string origin, Color color, string target1, string target2)
         {
             // Arrange
-            Square square = new Square(origin);
+            ISquare square = new Square(origin);
             IChessmen paw = new Paw(color);
 
             // Act
@@ -38,7 +38,7 @@ namespace AnToLan.UnitTest.Pieces
         public void Paw_should_move_3_squares_from(string origin, Color color, string target1, string target2, string target3)
         {
             // Arrange
-            Square square = new Square(origin);
+            ISquare square = new Square(origin);
             IChessmen paw = new Paw(color);
 
             // Act
@@ -56,7 +56,7 @@ namespace AnToLan.UnitTest.Pieces
         public void Paw_should_move_4_squares_from(string origin, Color color, string target1, string target2, string target3, string target4)
         {
             // Arrange
-            Square square = new Square(origin);
+            ISquare square = new Square(origin);
             IChessmen paw = new Paw(color);
 
             // Act

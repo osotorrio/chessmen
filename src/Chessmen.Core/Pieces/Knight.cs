@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using AnToLan.Core.Board;
-using AnToLan.Core.Contracts;
+using Chessmen.Core.Board;
+using Chessmen.Core.Contracts;
 using System.Linq;
 
-namespace AnToLan.Core.Pieces
+namespace Chessmen.Core.Pieces
 {
     public class Knight : IChessmen
     {
-        public IEnumerable<string> GetPseudoMovesFrom(Square square)
+        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
         {
             var square1 = square.New(1, 2);
             var square2 = square.New(2, 1);

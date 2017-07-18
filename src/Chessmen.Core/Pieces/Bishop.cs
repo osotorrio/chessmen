@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using AnToLan.Core.Board;
-using AnToLan.Core.Contracts;
+using Chessmen.Core.Contracts;
 
-namespace AnToLan.Core.Pieces
+namespace Chessmen.Core.Pieces
 {
     public class Bishop : IChessmen
     {
-        public IEnumerable<string> GetPseudoMovesFrom(Square square)
+        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
         {
             for (int col = -7; col <= 7; col++)
             {

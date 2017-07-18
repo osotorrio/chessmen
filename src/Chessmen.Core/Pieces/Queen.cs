@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using AnToLan.Core.Board;
-using AnToLan.Core.Contracts;
 using System.Linq;
+using Chessmen.Core.Contracts;
 
-namespace AnToLan.Core.Pieces
+namespace Chessmen.Core.Pieces
 {
     public class Queen : IChessmen
     {
-        public IEnumerable<string> GetPseudoMovesFrom(Square square)
+        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
         {
             var rockMoves = new Rock().GetPseudoMovesFrom(square);
             var bishopMoves = new Bishop().GetPseudoMovesFrom(square);

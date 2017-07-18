@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ISquare.cs" />
     <Compile Include="Board\Square.cs" />
     <Compile Include="Contracts\IChessmen.cs" />
     <Compile Include="Enums\ColorEnum.cs" />

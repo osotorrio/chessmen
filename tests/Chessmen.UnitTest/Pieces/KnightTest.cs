@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AnToLan.Core.Board;
-using AnToLan.Core.Pieces;
-using AnToLan.Core.Contracts;
+using Chessmen.Core.Board;
+using Chessmen.Core.Pieces;
+using Chessmen.Core.Contracts;
 using NUnit.Framework;
 
-namespace AnToLan.UnitTest.Pieces
+namespace Chessmen.UnitTest.Pieces
 {
     [TestFixture]
     class KnightTest
@@ -17,7 +17,7 @@ namespace AnToLan.UnitTest.Pieces
         public void Knight_should_move_2_squares_from_corner(string source, string target1, string target2)
         {
             // Arrange
-            Square square = new Square(source);
+            ISquare square = new Square(source);
             IChessmen knight = new Knight();
 
             // Act
@@ -36,7 +36,7 @@ namespace AnToLan.UnitTest.Pieces
         public void Knight_should_move_4_squares_from_border(string source, string target1, string target2, string target3, string target4)
         {
             // Arrange
-            Square square = new Square(source);
+            ISquare square = new Square(source);
             IChessmen knight = new Knight();
 
             // Act

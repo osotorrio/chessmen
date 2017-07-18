@@ -1,8 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
-using AnToLan.Core.Board;
+using Chessmen.Core.Board;
+using Chessmen.Core.Contracts;
 
-namespace AnToLan.UnitTest.Board
+namespace Chessmen.UnitTest.Board
 {
     [TestFixture]
     public class SquareTest
@@ -39,7 +40,7 @@ namespace AnToLan.UnitTest.Board
         {
             // Arrange
             string expectedSquare = "e4";
-            var square = new Square(expectedSquare);
+            ISquare square = new Square(expectedSquare);
 
             // Act
             string actualSquare = square.ToString();
@@ -55,10 +56,10 @@ namespace AnToLan.UnitTest.Board
         public void New_should_create_new_square(string source, int columIncrease, int rowIncrease, string target)
         {
             // Arrange
-            Square square = new Square(source);
+            ISquare square = new Square(source);
 
             // Act
-            Square newSquare = square.New(columIncrease, rowIncrease);
+            ISquare newSquare = square.New(columIncrease, rowIncrease);
             string actual = newSquare.ToString();
 
             // Assert
@@ -71,10 +72,10 @@ namespace AnToLan.UnitTest.Board
         public void New_should_return_null_when_it_is_out_of_board(int col, int row)
         {
             // Arrange
-            Square square = new Square("a1");
-            
+            ISquare square = new Square("a1");
+
             // Act
-            Square newSquare = square.New(col, row);
+            ISquare newSquare = square.New(col, row);
 
             // Assert
             Assert.That(newSquare, Is.Null);

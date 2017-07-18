@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using AnToLan.Core.Board;
-using AnToLan.Core.Contracts;
+using Chessmen.Core.Contracts;
 
-namespace AnToLan.Core.Pieces
+namespace Chessmen.Core.Pieces
 {
     public class King : IChessmen
     {
-        public IEnumerable<string> GetPseudoMovesFrom(Square square)
+        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
         {
             for (int col = -1; col <= 1; col++)
             {

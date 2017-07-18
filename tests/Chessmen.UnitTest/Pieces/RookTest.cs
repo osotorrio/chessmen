@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AnToLan.Core.Board;
-using AnToLan.Core.Pieces;
-using AnToLan.Core.Contracts;
-using AnToLan.UnitTest.Fixtures;
+using Chessmen.Core.Board;
+using Chessmen.Core.Pieces;
+using Chessmen.Core.Contracts;
+using Chessmen.UnitTest.Fixtures;
 using NUnit.Framework;
 
-namespace AnToLan.UnitTest.Pieces
+namespace Chessmen.UnitTest.Pieces
 {
     [TestFixture]
     class RookTest

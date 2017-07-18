@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AnToLan.UnitTest.Fixtures
+namespace Chessmen.UnitTest.Fixtures
 {
     class RockTestFixture
     {

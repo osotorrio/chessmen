@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using AnToLan.Core.Board;
-using AnToLan.Core.Contracts;
-using AnToLan.Core.Enums;
+using Chessmen.Core.Contracts;
+using Chessmen.Core.Enums;
 
-namespace AnToLan.Core.Pieces
+namespace Chessmen.Core.Pieces
 {
     public class Paw : IChessmen
     {
@@ -14,7 +13,7 @@ namespace AnToLan.Core.Pieces
             _direction = (int)color;   
         }
 
-        public IEnumerable<string> GetPseudoMovesFrom(Square square)
+        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
         {
             var moves = new List<string> { square.New(0, _direction).ToString() };
             

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
-using AnToLan.Core.Enums;
+using Chessmen.Core.Enums;
+using Chessmen.Core.Contracts;
 
-namespace AnToLan.Core.Board
+namespace Chessmen.Core.Board
 {
-    public class Square
+    public class Square : ISquare
     {
         public int Column { get; private set; }
 

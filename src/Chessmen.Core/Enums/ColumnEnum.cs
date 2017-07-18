@@ -1,4 +1,4 @@
-﻿namespace AnToLan.Core.Enums
+﻿namespace Chessmen.Core.Enums
 {
     public enum Column
     {
