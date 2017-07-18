@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\nunit.framework.2.63.0\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,11 +44,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board\SquareTest.cs" />
+    <Compile Include="Fixtures\BishopTestFixture.cs" />
+    <Compile Include="Fixtures\QueenTestFixture.cs" />
+    <Compile Include="Fixtures\RockTestFixture.cs" />
+    <Compile Include="Pieces\BishopTest.cs" />
+    <Compile Include="Pieces\KingTest.cs" />
+    <Compile Include="Pieces\KnightTest.cs" />
+    <Compile Include="Pieces\PawnTest.cs" />
+    <Compile Include="Pieces\QueenTest.cs" />
+    <Compile Include="Pieces\RookTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Fixtures\" />
-    <Folder Include="Pieces\" />
+    <ProjectReference Include="..\..\src\Chessmen.Core\Chessmen.Core.csproj">
+      <Project>{5101ca42-a0af-4295-b329-47513487d8bf}</Project>
+      <Name>Chessmen.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
