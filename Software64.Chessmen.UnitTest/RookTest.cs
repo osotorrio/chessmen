@@ -8,9 +8,9 @@ namespace Software64.Chessmen.UnitTest
     [TestFixture]
     class RookTest
     {
-        [TestCaseSource(typeof(RockTestFixture), "CornerCases")]
-        [TestCaseSource(typeof(RockTestFixture), "BorderCases")]
-        [TestCaseSource(typeof(RockTestFixture), "CentreCases")]
+        [TestCaseSource("CornerCases")]
+        [TestCaseSource("BorderCases")]
+        [TestCaseSource("CentreCases")]
         public void Rock_should_always_move_14_squares(string source, IEnumerable<string> expected)
         {
             // Arrange
@@ -24,5 +24,26 @@ namespace Software64.Chessmen.UnitTest
             Assert.That(moves.Count, Is.EqualTo(14));
             Assert.That(moves, Is.EquivalentTo(expected));
         }
+
+        static IEnumerable<object[]> CornerCases = new List<object[]>
+        {
+            new object[] { "a1", new List<string> { "a2", "a3", "a4", "a5", "a6", "a7", "a8", "b1", "c1", "d1", "e1", "f1", "g1", "h1" }},
+            new object[] { "a8", new List<string> { "a7", "a6", "a5", "a4", "a3", "a2", "a1", "b8", "c8", "d8", "e8", "f8", "g8", "h8" }},
+            new object[] { "h1", new List<string> { "h2", "h3", "h4", "h5", "h6", "h7", "h8", "b1", "c1", "d1", "e1", "f1", "g1", "a1" }},
+            new object[] { "h8", new List<string> { "h7", "h6", "h5", "h4", "h3", "h2", "h1", "b8", "c8", "d8", "e8", "f8", "g8", "a8" }}
+        };
+
+        static IEnumerable<object[]> BorderCases = new List<object[]>
+        {
+            new object[] { "d1", new List<string> { "d2", "d3", "d4", "d5", "d6", "d7", "d8", "a1", "b1", "c1", "e1", "f1", "g1", "h1" }},
+            new object[] { "d8", new List<string> { "d2", "d3", "d4", "d5", "d6", "d7", "d1", "a8", "b8", "c8", "e8", "f8", "g8", "h8" }},
+            new object[] { "a4", new List<string> { "a1", "a2", "a3", "a5", "a6", "a7", "a8", "b4", "c4", "d4", "e4", "f4", "g4", "h4" }},
+            new object[] { "h4", new List<string> { "h1", "h2", "h3", "h5", "h6", "h7", "h8", "b4", "c4", "d4", "e4", "f4", "g4", "a4" }}
+        };
+
+        static IEnumerable<object[]> CentreCases = new List<object[]>
+        {
+            new object[] { "d4", new List<string> { "d1", "d2", "d3", "d5", "d6", "d7", "d8", "a4", "b4", "c4", "e4", "f4", "g4", "h4" }}
+        };
     }
 }
