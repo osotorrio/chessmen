@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Software64.Chessmen.Contracts;
+using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen.UnitTest
 {
@@ -14,7 +15,7 @@ namespace Software64.Chessmen.UnitTest
         public void Bishop_should_always_move_between_7_and_13_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            IChessmen bishop = new Bishop();
+            ChessmenBase bishop = new Bishop(Color.White);
 
             // Act
             IEnumerable<string> moves = bishop.GetPseudoMovesFrom(current).ToList();

@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Software64.Chessmen.Contracts;
+using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen.UnitTest
 {
@@ -14,7 +15,7 @@ namespace Software64.Chessmen.UnitTest
         public void Queen_should_always_move_21_and_28_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            IChessmen queen = new Queen();
+            ChessmenBase queen = new Queen(Color.Black);
 
             // Act
             IEnumerable<string> moves = queen.GetPseudoMovesFrom(current).ToList();

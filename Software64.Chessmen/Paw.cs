@@ -4,16 +4,16 @@ using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen
 {
-    public class Paw : IChessmen
+    public class Paw : ChessmenBase
     {
         private readonly int _direction;
 
-        public Paw(Color color)
+        public Paw(Color color) : base(color)
         {
             _direction = (int)color;   
         }
 
-        public IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMovesFrom(string square)
         {
             var source = new Square(square);
 

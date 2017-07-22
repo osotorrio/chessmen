@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Software64.Chessmen.Contracts;
+using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen.UnitTest
 {
@@ -14,7 +15,7 @@ namespace Software64.Chessmen.UnitTest
         public void Rock_should_always_move_14_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            IChessmen rock = new Rock();
+            ChessmenBase rock = new Rock(Color.White);
 
             // Act
             IEnumerable<string> moves = rock.GetPseudoMovesFrom(current).ToList();

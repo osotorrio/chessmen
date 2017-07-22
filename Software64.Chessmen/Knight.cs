@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Software64.Chessmen.Contracts;
+using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen
 {
-    public class Knight : IChessmen
+    public class Knight : ChessmenBase
     {
-        public IEnumerable<string> GetPseudoMovesFrom(string square)
+        public Knight(Color color) : base(color){}
+
+        public override IEnumerable<string> GetPseudoMovesFrom(string square)
         {
             var source = new Square(square);
             var target1 = source.New(1, 2);

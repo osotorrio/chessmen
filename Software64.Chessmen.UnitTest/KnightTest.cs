@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Software64.Chessmen.Contracts;
+using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen.UnitTest
 {
@@ -15,7 +16,7 @@ namespace Software64.Chessmen.UnitTest
         public void Knight_should_move_2_squares_from_corner(string current, string target1, string target2)
         {
             // Arrange
-            IChessmen knight = new Knight();
+            ChessmenBase knight = new Knight(Color.White);
 
             // Act
             IEnumerable<string> moves = knight.GetPseudoMovesFrom(current).ToList();
@@ -33,7 +34,7 @@ namespace Software64.Chessmen.UnitTest
         public void Knight_should_move_4_squares_from_border(string current, string target1, string target2, string target3, string target4)
         {
             // Arrange
-            IChessmen knight = new Knight();
+            ChessmenBase knight = new Knight(Color.Black);
 
             // Act
             IEnumerable<string> moves = knight.GetPseudoMovesFrom(current).ToList();

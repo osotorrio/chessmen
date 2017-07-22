@@ -41,9 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bishop.cs" />
+    <Compile Include="Contracts\ChessmenBase.cs" />
     <Compile Include="Enums\ColorEnum.cs" />
     <Compile Include="Enums\ColumnEnum.cs" />
-    <Compile Include="Contracts\IChessmen.cs" />
     <Compile Include="Contracts\ISquare.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
