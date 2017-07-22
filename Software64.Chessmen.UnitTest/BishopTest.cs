@@ -11,14 +11,13 @@ namespace Software64.Chessmen.UnitTest
         [TestCaseSource("CornerCases")]
         [TestCaseSource("BorderCases")]
         [TestCaseSource("CentreCases")]
-        public void Bishop_should_always_move_between_7_and_13_squares(string source, IEnumerable<string> expected)
+        public void Bishop_should_always_move_between_7_and_13_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            ISquare square = new Square(source);
             IChessmen bishop = new Bishop();
 
             // Act
-            IEnumerable<string> moves = bishop.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = bishop.GetPseudoMovesFrom(current).ToList();
 
             // Assert
             Assert.That(moves.Count, Is.AtLeast(7));

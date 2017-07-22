@@ -11,14 +11,13 @@ namespace Software64.Chessmen.UnitTest
         [TestCaseSource("CornerCases")]
         [TestCaseSource("BorderCases")]
         [TestCaseSource("CentreCases")]
-        public void Rock_should_always_move_14_squares(string source, IEnumerable<string> expected)
+        public void Rock_should_always_move_14_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            ISquare square = new Square(source);
             IChessmen rock = new Rock();
 
             // Act
-            IEnumerable<string> moves = rock.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = rock.GetPseudoMovesFrom(current).ToList();
 
             // Assert
             Assert.That(moves.Count, Is.EqualTo(14));

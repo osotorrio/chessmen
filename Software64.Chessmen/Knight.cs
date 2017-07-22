@@ -6,18 +6,19 @@ namespace Software64.Chessmen
 {
     public class Knight : IChessmen
     {
-        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
+        public IEnumerable<string> GetPseudoMovesFrom(string square)
         {
-            var square1 = square.New(1, 2);
-            var square2 = square.New(2, 1);
-            var square3 = square.New(1, -2);
-            var square4 = square.New(2, -1);
-            var square5 = square.New(-2, 1);
-            var square6 = square.New(-1, 2);
-            var square7 = square.New(-2, -1);
-            var square8 = square.New(-1, -2);
+            var source = new Square(square);
+            var target1 = source.New(1, 2);
+            var target2 = source.New(2, 1);
+            var target3 = source.New(1, -2);
+            var target4 = source.New(2, -1);
+            var target5 = source.New(-2, 1);
+            var target6 = source.New(-1, 2);
+            var target7 = source.New(-2, -1);
+            var target8 = source.New(-1, -2);
 
-            var squares = new List<Square> { square1, square2, square3, square4, square5, square6, square7, square8 };
+            var squares = new List<Square> { target1, target2, target3, target4, target5, target6, target7, target8 };
             return squares.Where(s => s != null).Select(s => s.ToString());
         }
     }

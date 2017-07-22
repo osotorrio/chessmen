@@ -18,23 +18,27 @@ namespace Software64.Chessmen
             ValidateRow(square.Last().ToString());
         }
 
-        public Square New(int colIncrease, int rowIncrease)
+        public Square New(int colIncrement, int rowIncrement)
         {
-            var col = Column + colIncrease;
-            var row = Row + rowIncrease;
+            var col = Column + colIncrement;
+            var row = Row + rowIncrement;
             
             if ((row < 1 || row > 8) || (col < 1 || col > 8))
             {
                 return null;
             }
 
-            return new Square(
-                $"{((Column)(col)).ToString().ToLower()}{row}");
+            return new Square(ToString(col, row));
         }
 
         public override string ToString()
         {
-            return $"{((Column)Column).ToString().ToLower()}{Row}";
+            return ToString(Column, Row);
+        }
+
+        private string ToString(int col, int row)
+        {
+            return $"{((Column)(col)).ToString().ToLower()}{row}";
         }
 
         private static void ValidateParam(string square)
@@ -52,7 +56,7 @@ namespace Software64.Chessmen
 
             if (!success || result < 1 || result > 8)
             {
-                throw new ArgumentException("Unknown row Id!!");
+                throw new ArgumentException("Unknown row Id");
             }
 
             Row = result;

@@ -12,14 +12,13 @@ namespace Software64.Chessmen.UnitTest
         [TestCase("a8", "b6", "c7")]
         [TestCase("h1", "g3", "f2")]
         [TestCase("h8", "g6", "f7")]
-        public void Knight_should_move_2_squares_from_corner(string source, string target1, string target2)
+        public void Knight_should_move_2_squares_from_corner(string current, string target1, string target2)
         {
             // Arrange
-            ISquare square = new Square(source);
             IChessmen knight = new Knight();
 
             // Act
-            IEnumerable<string> moves = knight.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = knight.GetPseudoMovesFrom(current).ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(2));
@@ -31,14 +30,13 @@ namespace Software64.Chessmen.UnitTest
         [TestCase("e8", "g7", "f6", "d6", "c7")]
         [TestCase("h4", "g2", "f3", "f5", "g6")]
         [TestCase("a5", "b7", "c6", "c4", "b3")]
-        public void Knight_should_move_4_squares_from_border(string source, string target1, string target2, string target3, string target4)
+        public void Knight_should_move_4_squares_from_border(string current, string target1, string target2, string target3, string target4)
         {
             // Arrange
-            ISquare square = new Square(source);
             IChessmen knight = new Knight();
 
             // Act
-            IEnumerable<string> moves = knight.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = knight.GetPseudoMovesFrom(current).ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(4));

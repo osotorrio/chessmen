@@ -13,42 +13,44 @@ namespace Software64.Chessmen
             _direction = (int)color;   
         }
 
-        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
+        public IEnumerable<string> GetPseudoMovesFrom(string square)
         {
-            var moves = new List<string> { square.New(0, _direction).ToString() };
+            var source = new Square(square);
+
+            var targets = new List<string> { source.New(0, _direction).ToString() };
             
-            if (square.Column == (int)Column.A)
+            if (source.Column == (int)Column.A)
             {
-                moves.Add(square.New(1, _direction).ToString());
+                targets.Add(source.New(1, _direction).ToString());
                 
-                if (square.Row == (int)Row.Two || square.Row == (int)Row.Seven)
+                if (source.Row == (int)Row.Two || source.Row == (int)Row.Seven)
                 {
-                    moves.Add(square.New(0, _direction*2).ToString());
+                    targets.Add(source.New(0, _direction*2).ToString());
                 }
             }
 
-            if (square.Column == (int)Column.H)
+            if (source.Column == (int)Column.H)
             {
-                moves.Add(square.New(-1, _direction).ToString());
+                targets.Add(source.New(-1, _direction).ToString());
                 
-                if (square.Row == (int)Row.Two || square.Row == (int)Row.Seven)
+                if (source.Row == (int)Row.Two || source.Row == (int)Row.Seven)
                 {
-                    moves.Add(square.New(0, _direction*2).ToString());
+                    targets.Add(source.New(0, _direction*2).ToString());
                 }
             }
 
-            if (square.Column != (int)Column.A && square.Column != (int)Column.H)
+            if (source.Column != (int)Column.A && source.Column != (int)Column.H)
             {
-                moves.Add(square.New(-1, _direction).ToString());
-                moves.Add(square.New(1, _direction).ToString());
+                targets.Add(source.New(-1, _direction).ToString());
+                targets.Add(source.New(1, _direction).ToString());
 
-                if (square.Row == (int)Row.Two || square.Row == (int)Row.Seven)
+                if (source.Row == (int)Row.Two || source.Row == (int)Row.Seven)
                 {
-                    moves.Add(square.New(0, _direction*2).ToString());
+                    targets.Add(source.New(0, _direction*2).ToString());
                 }
             }
 
-            return moves;
+            return targets;
         }
     }
 }

@@ -11,14 +11,13 @@ namespace Software64.Chessmen.UnitTest
         [TestCaseSource("CornerCases")]
         [TestCaseSource("BorderCases")]
         [TestCaseSource("CentreCases")]
-        public void Queen_should_always_move_21_and_28_squares(string source, IEnumerable<string> expected)
+        public void Queen_should_always_move_21_and_28_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            ISquare square = new Square(source);
             IChessmen queen = new Queen();
 
             // Act
-            IEnumerable<string> moves = queen.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = queen.GetPseudoMovesFrom(current).ToList();
 
             // Assert
             Assert.That(moves.Count, Is.AtLeast(21));

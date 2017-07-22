@@ -4,6 +4,6 @@ namespace Software64.Chessmen.Contracts
 {
     public interface IChessmen
     {
-        IEnumerable<string> GetPseudoMovesFrom(ISquare square);
+        IEnumerable<string> GetPseudoMovesFrom(string square);
     }
 }

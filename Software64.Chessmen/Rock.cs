@@ -5,18 +5,20 @@ namespace Software64.Chessmen
 {
     public class Rock : IChessmen
     {
-        public IEnumerable<string> GetPseudoMovesFrom(ISquare square)
+        public IEnumerable<string> GetPseudoMovesFrom(string square)
         {
+            var source = new Square(square);
+
             for (int col = -7; col <= 7; col++)
             {
                 for (int row = -7; row <= 7; row++)
                 {
-                    var newSquare = square.New(col, row);
+                    var target = source.New(col, row);
 
-                    if (newSquare != null && newSquare.ToString() != square.ToString() 
-                        && (newSquare.Column == square.Column || newSquare.Row == square.Row))
+                    if (target != null && target.ToString() != square.ToString() 
+                        && (target.Column == source.Column || target.Row == source.Row))
                     {
-                        yield return newSquare.ToString();
+                        yield return target.ToString();
                     }
                 }
             }

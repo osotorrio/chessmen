@@ -15,11 +15,10 @@ namespace Software64.Chessmen.UnitTest
         public void King_should_move_to_3_squares_from_corner(string source, string target1, string target2, string target3)
         {
             // Arrange
-            ISquare square = new Square(source);
             IChessmen king = new King();
 
             // Act
-            IEnumerable<string> moves = king.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = king.GetPseudoMovesFrom(source).ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(3));
@@ -36,10 +35,9 @@ namespace Software64.Chessmen.UnitTest
         {
             // Arrange
             IChessmen king = new King();
-            ISquare square = new Square(source);
 
             // Act
-            IEnumerable<string> moves = king.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = king.GetPseudoMovesFrom(source).ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(5));
@@ -55,10 +53,10 @@ namespace Software64.Chessmen.UnitTest
         {
             // Arrange
             IChessmen king = new King();
-            ISquare square = new Square("d4");
+            string current = "d4";
 
             // Act
-            IEnumerable<string> moves = king.GetPseudoMovesFrom(square).ToList();
+            IEnumerable<string> moves = king.GetPseudoMovesFrom(current).ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(8));

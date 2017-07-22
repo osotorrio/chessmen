@@ -6,6 +6,6 @@
 
         int Row { get; }
 
-        Square New(int colIncrease, int rowIncrease);
+        Square New(int colIncrement, int rowIncrement);
     }
 }

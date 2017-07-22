@@ -52,10 +52,10 @@ namespace Software64.Chessmen.UnitTest
         [TestCase("a1", 0, 0, "a1")]
         [TestCase("a1", 1, 0, "b1")]
         [TestCase("a1", 0, 1, "a2")]
-        public void New_should_create_new_square(string source, int columIncrease, int rowIncrease, string target)
+        public void New_should_create_new_square(string current, int columIncrease, int rowIncrease, string target)
         {
             // Arrange
-            ISquare square = new Square(source);
+            ISquare square = new Square(current);
 
             // Act
             ISquare newSquare = square.New(columIncrease, rowIncrease);
