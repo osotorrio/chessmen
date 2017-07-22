@@ -15,9 +15,10 @@ Alternatively, you could pull the repository and add the two projects (Software6
 ```c#
 using Software64.Chessmen;
 using Software64.Chessmen.Contracts;
+using Software64.Chessmen.Enums;
 
 string currentSquare = "d1";
-IChessmen rock = new Rock();
+ChessmenBase rock = new Rock(Color.White);
 
 IEnumerable<string> pseudoMoves = rock.GetPseudoMovesFrom(currentSquare);
 
