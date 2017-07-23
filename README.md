@@ -1,7 +1,7 @@
 # What Chessmen does?
 Chessmen is a collection of chess pieces which know where to move on the board. 
 
-They just return pseudo moves or possible moves like if the board were empty. Meaning that Chessmen is not a chess engine, but it could be used to build one. 
+They just return pseudo moves or possible moves like if the board were empty. Meaning that **Chessmen is not a chess engine**, but it could be used to build one. 
 
 Chessmen responses to the following question: **If I have a rock in d1, where could the rock move if the board were empty?**
 
