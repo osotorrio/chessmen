@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Software64.Chessmen</id>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <title>$title$</title>
     <authors>osotorrio</authors>
     <owners>osotorrio</owners>
     <projectUrl>https://github.com/osotorrio/chessmen</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Collection of chess pieces which know where to move on the board. They just return pseudo moves or possible moves like if the board were empty.</description>
-    <releaseNotes>Forcing all pieces to have a constractor with a color parameter</releaseNotes>
+    <releaseNotes>Fixed silly spelling mistake. Improved Queen's performance with less loops</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>chess chessmen game dotnet c#</tags>
   </metadata>
