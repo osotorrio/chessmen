@@ -4,11 +4,11 @@ using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen
 {
-    public class Paw : ChessmenBase
+    public class Pawn : ChessmenBase
     {
         private readonly int _direction;
 
-        public Paw(Color color) : base(color)
+        public Pawn(Color color) : base(color)
         {
             _direction = (int)color;   
         }
