@@ -24,7 +24,7 @@ IEnumerable<string> pseudoMoves = rock.GetPseudoMovesFrom(currentSquare);
 
 // pseudoMoves = [a1, b1, c1, d2, d3, d4, d5, d6, d7, d8, e1, f1, g1, h1]
 ```
-All Chessmen objects (Rock, Queen, Bishop, etc) internally use [Square](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Square.cs) which validates if the string-square passed as parameter is valid. 
+All Chessmen objects (Rock, Queen, Bishop, etc) internally use [Square](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Square.cs) which validates if the string (currentSquare) passed as parameter is valid. 
 
 There is a thrid namespace **Software64.Chessmen.Enums** where you can find:
 * [ColorEnum](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Enums/ColorEnum.cs)
