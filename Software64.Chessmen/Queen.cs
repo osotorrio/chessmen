@@ -12,10 +12,23 @@ namespace Software64.Chessmen
 
         public override IEnumerable<string> GetPseudoMovesFrom(string square)
         {
-            var rockMoves = new Rock(Color.White).GetPseudoMovesFrom(square);
-            var bishopMoves = new Bishop(Color.White).GetPseudoMovesFrom(square);
+            var source = new Square(square);
 
-            return rockMoves.Concat(bishopMoves);
+            for (int col = -7; col <= 7; col++)
+            {
+                for (int row = -7; row <= 7; row++)
+                {
+                    var target = source.New(col, row);
+
+                    if (target != null && target.ToString() != square.ToString()
+                        && 
+                        ((target.Column == source.Column || target.Row == source.Row) 
+                            || (Math.Abs(target.Column - source.Column) == Math.Abs(target.Row - source.Row))))
+                    {
+                        yield return target.ToString();
+                    }
+                }
+            }
         }
     }
 }
