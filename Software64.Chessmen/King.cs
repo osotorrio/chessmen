@@ -6,11 +6,11 @@ namespace Software64.Chessmen
 {
     public class King : ChessmenBase
     {
-        public King(Color color) : base(color){}
+        public King(Color color, string square) : base(color, square){}
 
-        public override IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMoves()
         {
-            var source = new Square(square);
+            var source = new Square(Square);
 
             for (int col = -1; col <= 1; col++)
             {

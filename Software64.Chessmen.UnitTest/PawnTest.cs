@@ -15,10 +15,10 @@ namespace Software64.Chessmen.UnitTest
         public void Paw_should_move_2_squares_from(string current, Color color, string target1, string target2)
         {
             // Arrange
-            ChessmenBase paw = new Pawn(color);
+            ChessmenBase paw = new Pawn(color, current);
 
             // Act
-            IEnumerable<string> moves = paw.GetPseudoMovesFrom(current);
+            IEnumerable<string> moves = paw.GetPseudoMoves();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(2));
@@ -35,10 +35,10 @@ namespace Software64.Chessmen.UnitTest
         public void Paw_should_move_3_squares_from(string current, Color color, string target1, string target2, string target3)
         {
             // Arrange
-            ChessmenBase paw = new Pawn(color);
+            ChessmenBase paw = new Pawn(color, current);
 
             // Act
-            IEnumerable<string> moves = paw.GetPseudoMovesFrom(current);
+            IEnumerable<string> moves = paw.GetPseudoMoves();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(3));
@@ -52,10 +52,10 @@ namespace Software64.Chessmen.UnitTest
         public void Paw_should_move_4_squares_from(string current, Color color, string target1, string target2, string target3, string target4)
         {
             // Arrange
-            ChessmenBase paw = new Pawn(color);
+            ChessmenBase paw = new Pawn(color, current);
 
             // Act
-            IEnumerable<string> moves = paw.GetPseudoMovesFrom(current);
+            IEnumerable<string> moves = paw.GetPseudoMoves();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(4));

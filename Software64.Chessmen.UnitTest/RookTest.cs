@@ -15,10 +15,10 @@ namespace Software64.Chessmen.UnitTest
         public void Rock_should_always_move_14_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            ChessmenBase rock = new Rock(Color.White);
+            ChessmenBase rock = new Rook(Color.White, current);
 
             // Act
-            IEnumerable<string> moves = rock.GetPseudoMovesFrom(current).ToList();
+            IEnumerable<string> moves = rock.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves.Count, Is.EqualTo(14));

@@ -7,11 +7,14 @@ namespace Software64.Chessmen.Contracts
     {
         public Color Color { get; }
 
-        public ChessmenBase(Color color)
+        public string Square { get; }
+
+        public ChessmenBase(Color color, string square)
         {
             Color = color;
+            Square = square;
         }
 
-        public abstract IEnumerable<string> GetPseudoMovesFrom(string square);
+        public abstract IEnumerable<string> GetPseudoMoves();
     }
 }

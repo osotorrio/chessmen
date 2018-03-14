@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Software64.Chessmen.Contracts;
 using Software64.Chessmen.Enums;
 
@@ -8,11 +7,11 @@ namespace Software64.Chessmen
 {
     public class Queen : ChessmenBase
     {
-        public Queen(Color color) : base(color){}
+        public Queen(Color color, string square) : base(color, square){}
 
-        public override IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMoves()
         {
-            var source = new Square(square);
+            var source = new Square(Square);
 
             for (int col = -7; col <= 7; col++)
             {
@@ -20,7 +19,7 @@ namespace Software64.Chessmen
                 {
                     var target = source.New(col, row);
 
-                    if (target != null && target.ToString() != square.ToString()
+                    if (target != null && target.ToString() != Square
                         && 
                         ((target.Column == source.Column || target.Row == source.Row) 
                             || (Math.Abs(target.Column - source.Column) == Math.Abs(target.Row - source.Row))))

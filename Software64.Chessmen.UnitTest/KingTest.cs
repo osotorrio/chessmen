@@ -16,10 +16,10 @@ namespace Software64.Chessmen.UnitTest
         public void King_should_move_to_3_squares_from_corner(string source, string target1, string target2, string target3)
         {
             // Arrange
-            ChessmenBase king = new King(Color.White);
+            ChessmenBase king = new King(Color.White, source);
 
             // Act
-            IEnumerable<string> moves = king.GetPseudoMovesFrom(source).ToList();
+            IEnumerable<string> moves = king.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(3));
@@ -35,10 +35,10 @@ namespace Software64.Chessmen.UnitTest
         public void King_should_move_to_5_squares_from_border(string source, string target1, string target2, string target3, string target4, string target5)
         {
             // Arrange
-            ChessmenBase king = new King(Color.White);
+            ChessmenBase king = new King(Color.White, source);
 
             // Act
-            IEnumerable<string> moves = king.GetPseudoMovesFrom(source).ToList();
+            IEnumerable<string> moves = king.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(5));
@@ -53,11 +53,11 @@ namespace Software64.Chessmen.UnitTest
         public void King_should_move_to_5_squares_from_middle()
         {
             // Arrange
-            ChessmenBase king = new King(Color.Black);
             string current = "d4";
+            ChessmenBase king = new King(Color.Black, current);
 
             // Act
-            IEnumerable<string> moves = king.GetPseudoMovesFrom(current).ToList();
+            IEnumerable<string> moves = king.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(8));

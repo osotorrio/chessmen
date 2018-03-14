@@ -7,11 +7,11 @@ namespace Software64.Chessmen
 {
     public class Bishop : ChessmenBase
     {
-        public Bishop(Color color) : base(color){}
+        public Bishop(Color color, string square) : base(color, square){}
 
-        public override IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMoves()
         {
-            var source = new Square(square);
+            var source = new Square(Square);
 
             for (int col = -7; col <= 7; col++)
             {

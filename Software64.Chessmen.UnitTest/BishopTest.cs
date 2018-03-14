@@ -15,10 +15,10 @@ namespace Software64.Chessmen.UnitTest
         public void Bishop_should_always_move_between_7_and_13_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            ChessmenBase bishop = new Bishop(Color.White);
+            ChessmenBase bishop = new Bishop(Color.White, current);
 
             // Act
-            IEnumerable<string> moves = bishop.GetPseudoMovesFrom(current).ToList();
+            IEnumerable<string> moves = bishop.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves.Count, Is.AtLeast(7));

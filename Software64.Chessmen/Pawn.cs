@@ -8,14 +8,14 @@ namespace Software64.Chessmen
     {
         private readonly int _direction;
 
-        public Pawn(Color color) : base(color)
+        public Pawn(Color color, string square) : base(color, square)
         {
             _direction = (int)color;   
         }
 
-        public override IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMoves()
         {
-            var source = new Square(square);
+            var source = new Square(Square);
 
             var targets = new List<string> { source.New(0, _direction).ToString() };
             

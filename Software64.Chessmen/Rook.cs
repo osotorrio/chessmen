@@ -4,13 +4,13 @@ using Software64.Chessmen.Enums;
 
 namespace Software64.Chessmen
 {
-    public class Rock : ChessmenBase
+    public class Rook : ChessmenBase
     {
-        public Rock(Color color) : base(color){}
+        public Rook(Color color, string square) : base(color, square){}
 
-        public override IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMoves()
         {
-            var source = new Square(square);
+            var source = new Square(Square);
 
             for (int col = -7; col <= 7; col++)
             {
@@ -18,7 +18,7 @@ namespace Software64.Chessmen
                 {
                     var target = source.New(col, row);
 
-                    if (target != null && target.ToString() != square.ToString() 
+                    if (target != null && target.ToString() != Square 
                         && (target.Column == source.Column || target.Row == source.Row))
                     {
                         yield return target.ToString();

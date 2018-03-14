@@ -7,11 +7,11 @@ namespace Software64.Chessmen
 {
     public class Knight : ChessmenBase
     {
-        public Knight(Color color) : base(color){}
+        public Knight(Color color, string square) : base(color, square){}
 
-        public override IEnumerable<string> GetPseudoMovesFrom(string square)
+        public override IEnumerable<string> GetPseudoMoves()
         {
-            var source = new Square(square);
+            var source = new Square(Square);
             var target1 = source.New(1, 2);
             var target2 = source.New(2, 1);
             var target3 = source.New(1, -2);

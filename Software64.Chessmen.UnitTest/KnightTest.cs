@@ -16,10 +16,10 @@ namespace Software64.Chessmen.UnitTest
         public void Knight_should_move_2_squares_from_corner(string current, string target1, string target2)
         {
             // Arrange
-            ChessmenBase knight = new Knight(Color.White);
+            ChessmenBase knight = new Knight(Color.White, current);
 
             // Act
-            IEnumerable<string> moves = knight.GetPseudoMovesFrom(current).ToList();
+            IEnumerable<string> moves = knight.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(2));
@@ -34,10 +34,10 @@ namespace Software64.Chessmen.UnitTest
         public void Knight_should_move_4_squares_from_border(string current, string target1, string target2, string target3, string target4)
         {
             // Arrange
-            ChessmenBase knight = new Knight(Color.Black);
+            ChessmenBase knight = new Knight(Color.Black, current);
 
             // Act
-            IEnumerable<string> moves = knight.GetPseudoMovesFrom(current).ToList();
+            IEnumerable<string> moves = knight.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves, Has.Count.EqualTo(4));

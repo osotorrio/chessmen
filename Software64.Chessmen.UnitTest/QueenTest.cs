@@ -15,10 +15,10 @@ namespace Software64.Chessmen.UnitTest
         public void Queen_should_always_move_21_and_28_squares(string current, IEnumerable<string> expected)
         {
             // Arrange
-            ChessmenBase queen = new Queen(Color.Black);
+            ChessmenBase queen = new Queen(Color.Black, current);
 
             // Act
-            IEnumerable<string> moves = queen.GetPseudoMovesFrom(current).ToList();
+            IEnumerable<string> moves = queen.GetPseudoMoves().ToList();
 
             // Assert
             Assert.That(moves.Count, Is.AtLeast(21));
