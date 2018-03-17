@@ -57,7 +57,7 @@ namespace Software64.Chessmen.UnitTest
         public void CanMoveTo_should_return_false_when_target_square_is_not_valid()
         {
             // Arrange
-            const string currentSquare = "f1";
+            const string currentSquare = "g6";
             const string targetSquare = "d8";
             ChessmenBase pawn = new Pawn(Color.Black, currentSquare);
 

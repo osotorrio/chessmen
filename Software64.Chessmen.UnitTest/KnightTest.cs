@@ -43,8 +43,8 @@ namespace Software64.Chessmen.UnitTest
         public void CanMoveTo_should_return_true_when_target_square_is_valid()
         {
             // Arrange
-            const string currentSquare = "f1";
-            const string targetSquare = "b5";
+            const string currentSquare = "g1";
+            const string targetSquare = "f3";
             ChessmenBase knight = new Knight(Color.Black, currentSquare);
 
             // Act
