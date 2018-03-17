@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Software64.Chessmen.Contracts;
@@ -9,6 +10,66 @@ namespace Software64.Chessmen.UnitTest
     [TestFixture]
     class BishopTest
     {
+        [Test]
+        public void MoveTo_should_ignore_squares_that_are_not_allowed()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "g8";
+            ChessmenBase bishop = new Bishop(Color.Black, currentSquare);
+
+            // Act
+            bishop.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(bishop.Square, Is.EqualTo(currentSquare));
+        }
+
+        [Test]
+        public void MoveTo_should_set_square_to_target_square()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "c4";
+            ChessmenBase bishop = new Bishop(Color.Black, currentSquare);
+
+            // Act
+            bishop.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(bishop.Square, Is.EqualTo(targetSquare));
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_true_when_target_square_is_valid()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "b5";
+            ChessmenBase bishop = new Bishop(Color.Black, currentSquare);
+
+            // Act
+            var result = bishop.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_false_when_target_square_is_not_valid()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "d8";
+            ChessmenBase bishop = new Bishop(Color.Black, currentSquare);
+
+            // Act
+            var result = bishop.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
         [TestCaseSource("CornerCases")]
         [TestCaseSource("BorderCases")]
         [TestCaseSource("CentreCases")]

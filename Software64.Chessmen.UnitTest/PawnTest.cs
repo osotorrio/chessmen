@@ -8,6 +8,66 @@ namespace Software64.Chessmen.UnitTest
     [TestFixture]
     class PawnTest
     {
+        [Test]
+        public void MoveTo_should_ignore_squares_that_are_not_allowed()
+        {
+            // Arrange
+            const string currentSquare = "e4";
+            const string targetSquare = "g8";
+            ChessmenBase pawn = new Pawn(Color.Black, currentSquare);
+
+            // Act
+            pawn.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(pawn.Square, Is.EqualTo(currentSquare));
+        }
+
+        [Test]
+        public void MoveTo_should_set_square_to_target_square()
+        {
+            // Arrange
+            const string currentSquare = "e5";
+            const string targetSquare = "f4";
+            ChessmenBase pawn = new Pawn(Color.Black, currentSquare);
+
+            // Act
+            pawn.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(pawn.Square, Is.EqualTo(targetSquare));
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_true_when_target_square_is_valid()
+        {
+            // Arrange
+            const string currentSquare = "d3";
+            const string targetSquare = "d2";
+            ChessmenBase pawn = new Pawn(Color.Black, currentSquare);
+
+            // Act
+            var result = pawn.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_false_when_target_square_is_not_valid()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "d8";
+            ChessmenBase pawn = new Pawn(Color.Black, currentSquare);
+
+            // Act
+            var result = pawn.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
         [TestCase("a3", Color.White, "a4", "b4")]
         [TestCase("h3", Color.White, "h4", "g4")]
         [TestCase("a6", Color.Black, "a5", "b5")]

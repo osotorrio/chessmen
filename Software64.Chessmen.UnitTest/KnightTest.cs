@@ -9,6 +9,66 @@ namespace Software64.Chessmen.UnitTest
     [TestFixture]
     class KnightTest
     {
+        [Test]
+        public void MoveTo_should_ignore_squares_that_are_not_allowed()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "g8";
+            ChessmenBase knight = new Knight(Color.Black, currentSquare);
+
+            // Act
+            knight.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(knight.Square, Is.EqualTo(currentSquare));
+        }
+
+        [Test]
+        public void MoveTo_should_set_square_to_target_square()
+        {
+            // Arrange
+            const string currentSquare = "f3";
+            const string targetSquare = "g5";
+            ChessmenBase knight = new Knight(Color.Black, currentSquare);
+
+            // Act
+            knight.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(knight.Square, Is.EqualTo(targetSquare));
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_true_when_target_square_is_valid()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "b5";
+            ChessmenBase knight = new Knight(Color.Black, currentSquare);
+
+            // Act
+            var result = knight.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_false_when_target_square_is_not_valid()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "d8";
+            ChessmenBase knight = new Knight(Color.Black, currentSquare);
+
+            // Act
+            var result = knight.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
         [TestCase("a1", "b3", "c2")]
         [TestCase("a8", "b6", "c7")]
         [TestCase("h1", "g3", "f2")]

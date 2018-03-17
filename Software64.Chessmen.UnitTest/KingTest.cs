@@ -9,6 +9,66 @@ namespace Software64.Chessmen.UnitTest
     [TestFixture]
     class KingTest
     {
+        [Test]
+        public void MoveTo_should_ignore_squares_that_are_not_allowed()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "g8";
+            ChessmenBase king = new King(Color.Black, currentSquare);
+
+            // Act
+            king.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(king.Square, Is.EqualTo(currentSquare));
+        }
+
+        [Test]
+        public void MoveTo_should_set_square_to_target_square()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "f2";
+            ChessmenBase king = new King(Color.Black, currentSquare);
+
+            // Act
+            king.MoveTo(targetSquare);
+
+            // Assert
+            Assert.That(king.Square, Is.EqualTo(targetSquare));
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_true_when_target_square_is_valid()
+        {
+            // Arrange
+            const string currentSquare = "e4";
+            const string targetSquare = "e5";
+            ChessmenBase king = new King(Color.Black, currentSquare);
+
+            // Act
+            var result = king.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void CanMoveTo_should_return_false_when_target_square_is_not_valid()
+        {
+            // Arrange
+            const string currentSquare = "f1";
+            const string targetSquare = "d8";
+            ChessmenBase king = new King(Color.Black, currentSquare);
+
+            // Act
+            var result = king.CanMoveTo(targetSquare);
+
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
         [TestCase("a1", "b1", "b2", "a2")]
         [TestCase("a8", "a7", "b8", "b7")]
         [TestCase("h1", "g1", "g2", "h2")]
