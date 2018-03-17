@@ -17,16 +17,25 @@ using Software64.Chessmen;
 using Software64.Chessmen.Contracts;
 using Software64.Chessmen.Enums;
 
-string currentSquare = "d1";
-ChessmenBase rock = new Rock(Color.White);
+string currentSquare = "d4";
+string targetSquare = "d1";
 
-IEnumerable<string> pseudoMoves = rock.GetPseudoMovesFrom(currentSquare);
+ChessmenBase rook = new Rook(Color.White, currentSquare);
+
+bool canMove = rook.CanMoveTo(targetSquare);
+
+if (canMove)
+{
+	rook.MoveTo(targetSquare);
+}
+
+IEnumerable<string> pseudoMoves = rock.GetPseudoMoves();
 
 // pseudoMoves = [a1, b1, c1, d2, d3, d4, d5, d6, d7, d8, e1, f1, g1, h1]
 ```
-All Chessmen objects (Rock, Queen, Bishop, etc) internally use [Square](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Square.cs) which validates if the string (currentSquare) passed as parameter is valid. 
+All Chessmen objects (Rock, Queen, Bishop, etc) internally use [Square](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Square.cs) which validates if the string (currentSquare) passed is valid. 
 
-There is a thrid namespace **Software64.Chessmen.Enums** where you can find:
+There is a third namespace **Software64.Chessmen.Enums** where you can find:
 * [ColorEnum](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Enums/ColorEnum.cs)
 * [ColumnEnum](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Enums/ColumnEnum.cs)
 * [RowEnum](https://github.com/osotorrio/chessmen/blob/master/Software64.Chessmen/Enums/RowEnum.cs)
