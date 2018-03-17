@@ -26,10 +26,10 @@ bool canMove = rook.CanMoveTo(targetSquare);
 
 if (canMove)
 {
-	rook.MoveTo(targetSquare);
+  rook.MoveTo(targetSquare);
 }
 
-IEnumerable<string> pseudoMoves = rock.GetPseudoMoves();
+IEnumerable<string> pseudoMoves = rook.GetPseudoMoves();
 
 // pseudoMoves = [a1, b1, c1, d2, d3, d4, d5, d6, d7, d8, e1, f1, g1, h1]
 ```
